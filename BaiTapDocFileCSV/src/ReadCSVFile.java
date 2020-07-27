@@ -5,6 +5,8 @@ public class ReadCSVFile {
     Reader reader;
     BufferedReader bufferedReader;
     Writer writer;
+    String cvsSplitBy = ",";
+
 
     public ReadCSVFile (String fileName){
         source=new File(fileName+".CSV");
@@ -30,10 +32,16 @@ public class ReadCSVFile {
 
     }
 
-    public String splitNumber() throws IOException {
-        String s=this.readRawContent();
-        s.split(",");
-        return s;
+    public String[] toArray() throws IOException {
+        String chuoiCanTach= readRawContent();
+        StringBuffer append=new StringBuffer("");
+
+        for(int i=0; i<chuoiCanTach.length();i++){
+            while(Character.toString(chuoiCanTach.charAt(i))!=cvsSplitBy){
+                append.append(Character.toString(chuoiCanTach.charAt(i));
+            }
+        }
+
     }
 
 }
