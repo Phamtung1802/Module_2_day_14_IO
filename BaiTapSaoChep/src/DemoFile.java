@@ -38,7 +38,7 @@ public class DemoFile {
     }
     public void copyFileContent(String tenfile) throws IOException {
         outputFile=new File(tenfile+".txt");
-       if(!this.outputFile.exists()) {
+       if(!this.outputFile.exists()&&!this.outputFile.isDirectory()) {
            this.writer = new FileWriter(this.outputFile);
            writer.write(this.getSourceFileContent());
            writer.close();
