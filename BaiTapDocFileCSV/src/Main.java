@@ -17,8 +17,6 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
             while ((line = br.readLine()) != null) {
-
-                // use comma as separator
                 String[] country = line.split(cvsSplitBy);
                 for (int i = 0; i < country.length; i++) {
                     map.put(country[4], country[5]);
@@ -33,7 +31,9 @@ public class Main {
             String code = entry.getKey();
             String name = entry.getValue();
             System.out.println("Country [code= " + code + " , name=" + name + "]");
+
         }
+        System.out.println(map);
     }
 
 }
