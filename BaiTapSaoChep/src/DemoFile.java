@@ -5,9 +5,11 @@ public class DemoFile {
     File sourceFile, outputFile;
     Reader reader;
     Writer writer;
+    BufferedReader bufferedReader;
 
     public DemoFile(String input) throws FileNotFoundException {
         sourceFile = new File(input + ".txt");
+
     }
 
     public File getSourceFile() {
@@ -17,12 +19,25 @@ public class DemoFile {
     public String getSourceFileContent() throws IOException {
         this.reader = new FileReader(this.sourceFile);
         StringBuffer fileContent = new StringBuffer("");
-        int i = -1;
+        int i = 0;
         while ((i = reader.read()) != -1) {
+            System.out.println(i);
             fileContent.append((char) i);
         }
         reader.close();
         return fileContent.toString();
+    }
+
+    public String getSourceFileContentBuffered() throws IOException {
+        this.bufferedReader= new BufferedReader(new FileReader(this.sourceFile));
+        StringBuffer result=new StringBuffer("");
+        String lineRead;
+        while ((lineRead =bufferedReader.readLine())!=null) {
+            result.append(lineRead);
+            result.append("\n");
+        }
+        reader.close();
+        return result.toString();
     }
 
     public String getOutputFileContent() throws IOException {
