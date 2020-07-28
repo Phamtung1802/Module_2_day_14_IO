@@ -1,10 +1,7 @@
 import java.io.*;
+public class CopyLongFile {
+    private static final int BUFFER_SIZE = 4096; // 4KB
 
-/**
- * Copy one file to another using low level byte streams, one byte at a time.
- * @author www.codejava.net
- */
-public class CopyFiles {
     public static void main(String[] args) {
 //        if (args.length < 2) {
 //            System.out.println("Please provide input and output files");
@@ -12,7 +9,7 @@ public class CopyFiles {
 //        }
 
         String inputFile = "test.txt";
-        String outputFile = "test1.txt";
+        String outputFile = "test2.txt";
 
 
         try (
@@ -20,11 +17,10 @@ public class CopyFiles {
                 OutputStream outputStream = new FileOutputStream(outputFile);
         ) {
 
-            int byteRead;
+            byte[] buffer = new byte[BUFFER_SIZE];
 
-            while ((byteRead = inputStream.read()) != -1) {
-                outputStream.write(byteRead);
-                System.out.println(byteRead);
+            while (inputStream.read(buffer) != -1) {
+                outputStream.write(buffer);
             }
 
         } catch (IOException ex) {
@@ -32,4 +28,3 @@ public class CopyFiles {
         }
     }
 }
-
