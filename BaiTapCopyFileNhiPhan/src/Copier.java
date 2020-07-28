@@ -12,16 +12,22 @@ public class Copier {
         System.out.println("nhap ten file dich");
         String outputFile = scanner.nextLine();
 <<<<<<< HEAD
+<<<<<<< HEAD
         try {
             InputStream inputStream = new FileInputStream(inputFile);
             System.out.println(inputStream);
             OutputStream outputStream = new FileOutputStream(outputFile);
             BufferedInputStream bufferedInputStream=new BufferedInputStream(inputStream)
 =======
+=======
+>>>>>>> parent of e7aa4fc... update
         try (
                 InputStream inputStream = new FileInputStream(inputFile);
                 OutputStream outputStream = new FileOutputStream(outputFile);
         ) {
+<<<<<<< HEAD
+>>>>>>> parent of e7aa4fc... update
+=======
 >>>>>>> parent of e7aa4fc... update
 
 
