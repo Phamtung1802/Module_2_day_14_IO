@@ -13,13 +13,15 @@ public class Copier {
         String outputFile = scanner.nextLine();
         try {
             InputStream inputStream = new FileInputStream(inputFile);
+            System.out.println(inputStream);
             OutputStream outputStream = new FileOutputStream(outputFile);
+            BufferedInputStream bufferedInputStream=new BufferedInputStream(inputStream)
 
-            byte[] buffer = new byte[BUFFER_SIZE];
 
-            while (inputStream.read(buffer) != -1) {
+            while (bufferedInputStream != -1) {
                 outputStream.write(buffer);
             }
+            System.out.println(buffer.length);
 
         } catch (IOException ex) {
             ex.printStackTrace();
