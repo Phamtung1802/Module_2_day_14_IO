@@ -11,10 +11,9 @@ public class Copier {
         System.out.println(inputFile);
         System.out.println("nhap ten file dich");
         String outputFile = scanner.nextLine();
-        try (
-                InputStream inputStream = new FileInputStream(inputFile);
-                OutputStream outputStream = new FileOutputStream(outputFile);
-        ) {
+        try {
+            InputStream inputStream = new FileInputStream(inputFile);
+            OutputStream outputStream = new FileOutputStream(outputFile);
 
             byte[] buffer = new byte[BUFFER_SIZE];
 
