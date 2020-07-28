@@ -11,30 +11,15 @@ public class Copier {
         System.out.println(inputFile);
         System.out.println("nhap ten file dich");
         String outputFile = scanner.nextLine();
-<<<<<<< HEAD
-<<<<<<< HEAD
         try {
             InputStream inputStream = new FileInputStream(inputFile);
-            System.out.println(inputStream);
             OutputStream outputStream = new FileOutputStream(outputFile);
-            BufferedInputStream bufferedInputStream=new BufferedInputStream(inputStream)
-=======
-=======
->>>>>>> parent of e7aa4fc... update
-        try (
-                InputStream inputStream = new FileInputStream(inputFile);
-                OutputStream outputStream = new FileOutputStream(outputFile);
-        ) {
-<<<<<<< HEAD
->>>>>>> parent of e7aa4fc... update
-=======
->>>>>>> parent of e7aa4fc... update
 
+            byte[] buffer = new byte[BUFFER_SIZE];
 
-            while (bufferedInputStream != -1) {
+            while (inputStream.read(buffer) != -1) {
                 outputStream.write(buffer);
             }
-            System.out.println(buffer.length);
 
         } catch (IOException ex) {
             ex.printStackTrace();
