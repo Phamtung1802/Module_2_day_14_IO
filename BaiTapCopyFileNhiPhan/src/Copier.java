@@ -7,19 +7,21 @@ public class Copier {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         System.out.println("nhap file can copy");
-        String inputFile = scanner.nextLine();
-        System.out.println(inputFile);
+        String inputFile = "test.txt";//scanner.nextLine();
         System.out.println("nhap ten file dich");
-        String outputFile = scanner.nextLine();
+        String outputFile = "test2.txt";//scanner.nextLine();
         try {
             InputStream inputStream = new FileInputStream(inputFile);
-            OutputStream outputStream = new FileOutputStream(outputFile);
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+            BufferedOutputStream bufferedOutputStream=new BufferedOutputStream(outputStream);
+            BufferedInputStream bufferedInputStream=new BufferedInputStream(inputStream);
 
-            byte[] buffer = new byte[BUFFER_SIZE];
-
-            while (inputStream.read(buffer) != -1) {
-                outputStream.write(buffer);
+            int buffer;
+            while ((buffer=bufferedInputStream.read()) != -1) {
+                System.out.println(buffer);
+                bufferedOutputStream.write(buffer);
             }
+            bufferedOutputStream.flush();
 
         } catch (IOException ex) {
             ex.printStackTrace();
